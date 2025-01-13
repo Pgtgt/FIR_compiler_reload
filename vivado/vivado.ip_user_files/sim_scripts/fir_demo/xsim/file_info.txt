@@ -1,0 +1,4 @@
+fir_demo_fir_compiler_0_0.vhd,vhdl,xil_defaultlib,../../../bd/fir_demo/ip/fir_demo_fir_compiler_0_0/sim/fir_demo_fir_compiler_0_0.vhd,
+fir_demo_xlconstant_0_1.v,verilog,xil_defaultlib,../../../bd/fir_demo/ip/fir_demo_xlconstant_0_1/sim/fir_demo_xlconstant_0_1.v,
+fir_demo.v,verilog,xil_defaultlib,../../../bd/fir_demo/sim/fir_demo.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v
