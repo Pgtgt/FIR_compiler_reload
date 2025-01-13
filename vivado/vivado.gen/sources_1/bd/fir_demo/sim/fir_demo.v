@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-//Date        : Tue Jan 14 00:08:52 2025
+//Date        : Tue Jan 14 00:23:40 2025
 //Host        : SHUN_PC running 64-bit major release  (build 9200)
 //Command     : generate_target fir_demo.bd
 //Design      : fir_demo
@@ -15,6 +15,9 @@ module fir_demo
    (clk,
     m_axis_data_tdata,
     m_axis_data_tvalid,
+    s_axis_config_tdata,
+    s_axis_config_tready,
+    s_axis_config_tvalid,
     s_axis_data_tdata,
     s_axis_data_tvalid,
     s_axis_reload_tdata,
@@ -24,6 +27,9 @@ module fir_demo
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK, CLK_DOMAIN fir_demo_clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk;
   output [39:0]m_axis_data_tdata;
   output m_axis_data_tvalid;
+  input [7:0]s_axis_config_tdata;
+  output s_axis_config_tready;
+  input s_axis_config_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.S_AXIS_DATA_TDATA DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.S_AXIS_DATA_TDATA, LAYERED_METADATA undef" *) input [15:0]s_axis_data_tdata;
   input s_axis_data_tvalid;
   input [15:0]s_axis_reload_tdata;
@@ -34,7 +40,10 @@ module fir_demo
   wire clk_1;
   wire [39:0]fir_compiler_0_m_axis_data_tdata;
   wire fir_compiler_0_m_axis_data_tvalid;
+  wire fir_compiler_0_s_axis_config_tready;
   wire fir_compiler_0_s_axis_reload_tready;
+  wire [7:0]s_axis_config_tdata_1;
+  wire s_axis_config_tvalid_1;
   wire [15:0]s_axis_data_tdata_1;
   wire s_axis_data_tvalid_1;
   wire [15:0]s_axis_reload_tdata_1;
@@ -45,6 +54,9 @@ module fir_demo
   assign clk_1 = clk;
   assign m_axis_data_tdata[39:0] = fir_compiler_0_m_axis_data_tdata;
   assign m_axis_data_tvalid = fir_compiler_0_m_axis_data_tvalid;
+  assign s_axis_config_tdata_1 = s_axis_config_tdata[7:0];
+  assign s_axis_config_tready = fir_compiler_0_s_axis_config_tready;
+  assign s_axis_config_tvalid_1 = s_axis_config_tvalid;
   assign s_axis_data_tdata_1 = s_axis_data_tdata[15:0];
   assign s_axis_data_tvalid_1 = s_axis_data_tvalid;
   assign s_axis_reload_tdata_1 = s_axis_reload_tdata[15:0];
@@ -56,8 +68,9 @@ module fir_demo
         .m_axis_data_tdata(fir_compiler_0_m_axis_data_tdata),
         .m_axis_data_tready(xlconstant_0_dout),
         .m_axis_data_tvalid(fir_compiler_0_m_axis_data_tvalid),
-        .s_axis_config_tdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axis_config_tvalid(1'b0),
+        .s_axis_config_tdata(s_axis_config_tdata_1),
+        .s_axis_config_tready(fir_compiler_0_s_axis_config_tready),
+        .s_axis_config_tvalid(s_axis_config_tvalid_1),
         .s_axis_data_tdata(s_axis_data_tdata_1),
         .s_axis_data_tvalid(s_axis_data_tvalid_1),
         .s_axis_reload_tdata(s_axis_reload_tdata_1),

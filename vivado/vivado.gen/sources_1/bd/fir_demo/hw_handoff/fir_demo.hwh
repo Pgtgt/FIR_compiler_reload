@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jan 14 00:08:52 2025" VIVADOVERSION="2023.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jan 14 00:23:40 2025" VIVADOVERSION="2023.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:zybo-z7-20:part0:1.2" DEVICE="7z020" NAME="fir_demo" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -17,6 +17,21 @@
     <PORT DIR="O" NAME="m_axis_data_tvalid" SIGIS="undef" SIGNAME="fir_compiler_0_m_axis_data_tvalid">
       <CONNECTIONS>
         <CONNECTION INSTANCE="fir_compiler_0" PORT="m_axis_data_tvalid"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="7" NAME="s_axis_config_tdata" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_s_axis_config_tdata">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fir_compiler_0" PORT="s_axis_config_tdata"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="s_axis_config_tready" SIGIS="undef" SIGNAME="fir_compiler_0_s_axis_config_tready">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fir_compiler_0" PORT="s_axis_config_tready"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="s_axis_config_tvalid" SIGIS="undef" SIGNAME="External_Ports_s_axis_config_tvalid">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fir_compiler_0" PORT="s_axis_config_tvalid"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="15" NAME="s_axis_data_tdata" RIGHT="0" SIGIS="data" SIGNAME="External_Ports_s_axis_data_tdata">
@@ -235,9 +250,21 @@
             <CONNECTION INSTANCE="External_Ports" PORT="m_axis_data_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="s_axis_config_tdata" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" NAME="s_axis_config_tready" SIGIS="undef"/>
-        <PORT DIR="I" NAME="s_axis_config_tvalid" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="7" NAME="s_axis_config_tdata" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_s_axis_config_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="s_axis_config_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axis_config_tready" SIGIS="undef" SIGNAME="fir_compiler_0_s_axis_config_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="s_axis_config_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_config_tvalid" SIGIS="undef" SIGNAME="External_Ports_s_axis_config_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="s_axis_config_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="15" NAME="s_axis_data_tdata" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_s_axis_data_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="s_axis_data_tdata"/>

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xF83C249EE5173AC",
+      "boundary_crc": "0x9CDA26AE5D9066D5",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../vivado.gen/sources_1/bd/fir_demo",
       "name": "fir_demo",
@@ -76,6 +76,17 @@
       },
       "s_axis_reload_tready": {
         "direction": "O"
+      },
+      "s_axis_config_tdata": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "s_axis_config_tready": {
+        "direction": "O"
+      },
+      "s_axis_config_tvalid": {
+        "direction": "I"
       }
     },
     "components": {
@@ -148,10 +159,28 @@
           "m_axis_data_tvalid"
         ]
       },
+      "fir_compiler_0_s_axis_config_tready": {
+        "ports": [
+          "fir_compiler_0/s_axis_config_tready",
+          "s_axis_config_tready"
+        ]
+      },
       "fir_compiler_0_s_axis_reload_tready": {
         "ports": [
           "fir_compiler_0/s_axis_reload_tready",
           "s_axis_reload_tready"
+        ]
+      },
+      "s_axis_config_tdata_1": {
+        "ports": [
+          "s_axis_config_tdata",
+          "fir_compiler_0/s_axis_config_tdata"
+        ]
+      },
+      "s_axis_config_tvalid_1": {
+        "ports": [
+          "s_axis_config_tvalid",
+          "fir_compiler_0/s_axis_config_tvalid"
         ]
       },
       "s_axis_data_tdata_1": {

@@ -56,6 +56,9 @@ module fir_reload_tb;
        (.clk(clk),
         .m_axis_data_tdata(m_axis_data_tdata),
         .m_axis_data_tvalid(m_axis_data_tvalid),
+        .s_axis_config_tdata(s_axis_config_tdata),
+        .s_axis_config_tready(s_axis_config_tready),
+        .s_axis_config_tvalid(s_axis_config_tvalid),
         .s_axis_data_tdata(s_axis_data_tdata),
         .s_axis_data_tvalid(s_axis_data_tvalid),
         .s_axis_reload_tdata(s_axis_reload_tdata),
@@ -64,7 +67,7 @@ module fir_reload_tb;
         .s_axis_reload_tvalid(s_axis_reload_tvalid));
 
     
-    
+
 
 
     always #(CLK_WITDH/2) clk = ~clk;
@@ -78,6 +81,8 @@ module fir_reload_tb;
         s_axis_reload_tdata = 0;
         s_axis_reload_tlast = 0;
         s_axis_reload_tvalid = 0;
+        s_axis_config_tdata = 0;
+        s_axis_config_tvalid = 0;
 
         #INTERVAL;
         
@@ -109,8 +114,16 @@ module fir_reload_tb;
         s_axis_reload_tlast = 0;
         s_axis_reload_tvalid = 0;
         
-        //// coef ??
+        //// conf ??
+        #(INTERVAL/2);
+        s_axis_config_tdata = 0;
+        s_axis_config_tvalid = 1;
+        #CLK_WITDH;
+        #(INTERVAL/2);
 
+        s_axis_config_tdata = 0;
+        s_axis_config_tvalid = 0;
+        #(INTERVAL/2);
 
         //// sample 2 
         #CLK_WITDH;
