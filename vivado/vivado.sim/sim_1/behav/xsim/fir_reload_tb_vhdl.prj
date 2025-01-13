@@ -1,0 +1,6 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../vivado.ip_user_files/bd/fir_demo/ip/fir_demo_fir_compiler_0_0/sim/fir_demo_fir_compiler_0_0.vhd" \
+
+# Do not sort compile order
+nosort

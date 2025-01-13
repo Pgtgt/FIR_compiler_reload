@@ -1,5 +1,8 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
+"../../../../vivado.ip_user_files/bd/fir_demo/ip/fir_demo_xlconstant_0_1/sim/fir_demo_xlconstant_0_1.v" \
+"../../../../vivado.ip_user_files/bd/fir_demo/sim/fir_demo.v" \
+"../../../../vivado.gen/sources_1/bd/fir_demo/hdl/fir_demo_wrapper.v" \
 "../../../../vivado.srcs/sim_1/new/fir_reload_tb.v" \
 
 # compile glbl module
