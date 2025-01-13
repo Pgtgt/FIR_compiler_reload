@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x3899C69DAF2B3B3D",
+      "boundary_crc": "0xF83C249EE5173AC",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../vivado.gen/sources_1/bd/fir_demo",
       "name": "fir_demo",
@@ -61,6 +61,20 @@
         "right": "0"
       },
       "m_axis_data_tvalid": {
+        "direction": "O"
+      },
+      "s_axis_reload_tdata": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "s_axis_reload_tlast": {
+        "direction": "I"
+      },
+      "s_axis_reload_tvalid": {
+        "direction": "I"
+      },
+      "s_axis_reload_tready": {
         "direction": "O"
       }
     },
@@ -134,6 +148,12 @@
           "m_axis_data_tvalid"
         ]
       },
+      "fir_compiler_0_s_axis_reload_tready": {
+        "ports": [
+          "fir_compiler_0/s_axis_reload_tready",
+          "s_axis_reload_tready"
+        ]
+      },
       "s_axis_data_tdata_1": {
         "ports": [
           "s_axis_data_tdata",
@@ -144,6 +164,24 @@
         "ports": [
           "s_axis_data_tvalid",
           "fir_compiler_0/s_axis_data_tvalid"
+        ]
+      },
+      "s_axis_reload_tdata_1": {
+        "ports": [
+          "s_axis_reload_tdata",
+          "fir_compiler_0/s_axis_reload_tdata"
+        ]
+      },
+      "s_axis_reload_tlast_1": {
+        "ports": [
+          "s_axis_reload_tlast",
+          "fir_compiler_0/s_axis_reload_tlast"
+        ]
+      },
+      "s_axis_reload_tvalid_1": {
+        "ports": [
+          "s_axis_reload_tvalid",
+          "fir_compiler_0/s_axis_reload_tvalid"
         ]
       },
       "xlconstant_0_dout": {

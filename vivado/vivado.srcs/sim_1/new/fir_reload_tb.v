@@ -45,6 +45,7 @@ module fir_reload_tb;
     reg [DATA_WIDTH-1:0] s_axis_reload_tdata;
     reg s_axis_reload_tlast;
     reg s_axis_reload_tvalid;
+    wire s_axis_reload_tready;
     
       // config def   
       reg [7:0]s_axis_config_tdata;
@@ -52,9 +53,18 @@ module fir_reload_tb;
       reg s_axis_config_tvalid;
     
       fir_demo_wrapper dut
-        (.clk(clk),
+       (.clk(clk),
+        .m_axis_data_tdata(m_axis_data_tdata),
+        .m_axis_data_tvalid(m_axis_data_tvalid),
         .s_axis_data_tdata(s_axis_data_tdata),
-        .s_axis_data_tvalid(s_axis_data_tvalid));
+        .s_axis_data_tvalid(s_axis_data_tvalid),
+        .s_axis_reload_tdata(s_axis_reload_tdata),
+        .s_axis_reload_tlast(s_axis_reload_tlast),
+        .s_axis_reload_tready(s_axis_reload_tready),
+        .s_axis_reload_tvalid(s_axis_reload_tvalid));
+
+    
+    
 
 
     always #(CLK_WITDH/2) clk = ~clk;
@@ -65,52 +75,63 @@ module fir_reload_tb;
         reset = 0;
         s_axis_data_tdata = 0;
         s_axis_data_tvalid = 0;
-//        // m_axis_tready = 0; // ready tekitou
-//////         s_axis_reload_tdata    =   16'b0000000000000000;
-//////         s_axis_reload_tlast    =   0;
-//////         s_axis_reload_tvalid   =   0;
-//////         s_axis_config_tdata    =   8'b00000000;
-////         s_axis_config_tvalid   =   0;
+        s_axis_reload_tdata = 0;
+        s_axis_reload_tlast = 0;
+        s_axis_reload_tvalid = 0;
 
-////        #32
-////        reset = 1;       
-////        #32 
-////        reset = 0;
-        
-////        #32 
         #INTERVAL;
         
     //////fir compieler test////////
     
         #1;
         
+        //// sample 1
+        #CLK_WITDH;
+        s_axis_data_tdata = -15;
+        s_axis_data_tvalid = 1;
+        #CLK_WITDH;
+        s_axis_data_tdata = 0;
+        s_axis_data_tvalid = 0;
+        #CLK_WITDH;
+        #INTERVAL;
         
+        //// reload(2 value)
+        #(INTERVAL/2);
+        s_axis_reload_tdata = 1;
+        s_axis_reload_tlast = 0;
+        s_axis_reload_tvalid = 1;
         #CLK_WITDH;
-////        s_axis_data_tdata = 48'h123412345678; ---
+        s_axis_reload_tdata = 0;
+        s_axis_reload_tlast = 1;
+        s_axis_reload_tvalid = 1;
+        #CLK_WITDH;
+        s_axis_reload_tdata = 0;
+        s_axis_reload_tlast = 0;
+        s_axis_reload_tvalid = 0;
+        
+        //// coef ??
+
+
+        //// sample 2 
+        #CLK_WITDH;
         s_axis_data_tdata = -15;
         s_axis_data_tvalid = 1;
         #CLK_WITDH;
-////        #4;
-//        // m_axis_tready = 0;
         s_axis_data_tdata = 0;
         s_axis_data_tvalid = 0;
         #CLK_WITDH;
         #INTERVAL;
 
-
-
+        //// sample 3
         #CLK_WITDH;
-////        s_axis_data_tdata = 48'h123412345678; ---
         s_axis_data_tdata = -15;
         s_axis_data_tvalid = 1;
         #CLK_WITDH;
-////        #4;
-//        // m_axis_tready = 0;
         s_axis_data_tdata = 0;
         s_axis_data_tvalid = 0;
         #CLK_WITDH;
         #INTERVAL;
-
+        
           $finish;
     end
     
