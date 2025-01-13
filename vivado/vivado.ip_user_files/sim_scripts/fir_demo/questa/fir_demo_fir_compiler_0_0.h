@@ -51,7 +51,7 @@
 //
 //------------------------------------------------------------------------------
 //
-// coefficients: 1,0,0,0
+// coefficients: -10,0
 // chanpats: 173
 // name: fir_demo_fir_compiler_0_0
 // filter_type: 0
@@ -60,7 +60,7 @@
 // decim_rate: 1
 // zero_pack_factor: 1
 // coeff_padding: 0
-// num_coeffs: 4
+// num_coeffs: 2
 // coeff_sets: 1
 // reloadable: 1
 // is_halfband: 0
@@ -73,11 +73,11 @@
 // data_width: 16
 // data_fract_width: 0
 // output_rounding_mode: 0
-// output_width: 34
+// output_width: 33
 // output_fract_width: 0
 // config_method: 0
 
-const double fir_demo_fir_compiler_0_0_coefficients[4] = {1,0,0,0};
+const double fir_demo_fir_compiler_0_0_coefficients[2] = {-10,0};
 
 const xip_fir_v7_2_pattern fir_demo_fir_compiler_0_0_chanpats[1] = {P_BASIC};
 
@@ -91,7 +91,7 @@ static xip_fir_v7_2_config gen_fir_demo_fir_compiler_0_0_config() {
   config.zero_pack_factor    = 1;
   config.coeff               = &fir_demo_fir_compiler_0_0_coefficients[0];
   config.coeff_padding       = 0;
-  config.num_coeffs          = 4;
+  config.num_coeffs          = 2;
   config.coeff_sets          = 1;
   config.reloadable          = 1;
   config.is_halfband         = 0;
@@ -105,7 +105,7 @@ static xip_fir_v7_2_config gen_fir_demo_fir_compiler_0_0_config() {
   config.data_width          = 16;
   config.data_fract_width    = 0;
   config.output_rounding_mode= XIP_FIR_FULL_PRECISION;
-  config.output_width        = 34;
+  config.output_width        = 33;
   config.output_fract_width  = 0,
   config.config_method       = XIP_FIR_CONFIG_SINGLE;
   return config;

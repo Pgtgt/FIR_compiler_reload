@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB9C84F114692D007",
+      "boundary_crc": "0x3899C69DAF2B3B3D",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../vivado.gen/sources_1/bd/fir_demo",
       "name": "fir_demo",
@@ -54,6 +54,14 @@
       },
       "s_axis_data_tvalid": {
         "direction": "I"
+      },
+      "m_axis_data_tdata": {
+        "direction": "O",
+        "left": "39",
+        "right": "0"
+      },
+      "m_axis_data_tvalid": {
+        "direction": "O"
       }
     },
     "components": {
@@ -65,7 +73,7 @@
         "inst_hier_path": "fir_compiler_0",
         "parameters": {
           "CoefficientVector": {
-            "value": "1, 0,0,0"
+            "value": "-10,0"
           },
           "Coefficient_Fractional_Bits": {
             "value": "0"
@@ -92,7 +100,7 @@
             "value": "Full_Precision"
           },
           "Output_Width": {
-            "value": "34"
+            "value": "33"
           },
           "Quantization": {
             "value": "Integer_Coefficients"
@@ -112,6 +120,18 @@
         "ports": [
           "clk",
           "fir_compiler_0/aclk"
+        ]
+      },
+      "fir_compiler_0_m_axis_data_tdata": {
+        "ports": [
+          "fir_compiler_0/m_axis_data_tdata",
+          "m_axis_data_tdata"
+        ]
+      },
+      "fir_compiler_0_m_axis_data_tvalid": {
+        "ports": [
+          "fir_compiler_0/m_axis_data_tvalid",
+          "m_axis_data_tvalid"
         ]
       },
       "s_axis_data_tdata_1": {

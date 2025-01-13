@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "xbip_utils_v3_0_11" -L "axi_utils_v2_0_7" -L "fir_compiler_v7_2_20" -L "secureip" -L "xpm" --snapshot "tb_fir_compiler_0_behav" "xil_defaultlib.tb_fir_compiler_0" -log "elaborate.log" 

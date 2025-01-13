@@ -1,21 +1,25 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.38006",
-   "Default View_TopLeft":"-93,-736",
+   "Default View_ScaleFactor":"1.5",
+   "Default View_TopLeft":"-699,-783",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
 #  -string -flagsOSRD
 preplace port port-id_clk -pg 1 -lvl 0 -x -80 -y -230 -defaultsOSRD
 preplace port port-id_s_axis_data_tvalid -pg 1 -lvl 0 -x -80 -y -270 -defaultsOSRD
+preplace port port-id_m_axis_data_tvalid -pg 1 -lvl 2 -x 550 -y -230 -defaultsOSRD
 preplace portBus s_axis_data_tdata -pg 1 -lvl 0 -x -80 -y -310 -defaultsOSRD
-preplace inst fir_compiler_0 -pg 1 -lvl 1 -x 310 -y -290 -defaultsOSRD
+preplace portBus m_axis_data_tdata -pg 1 -lvl 2 -x 550 -y -270 -defaultsOSRD
+preplace inst fir_compiler_0 -pg 1 -lvl 1 -x 310 -y -260 -defaultsOSRD
 preplace inst xlconstant_0 -pg 1 -lvl 1 -x 310 -y -490 -defaultsOSRD
-preplace netloc clk_1 1 0 1 -60 -240n
-preplace netloc s_axis_data_tdata_1 1 0 1 -60 -310n
-preplace netloc s_axis_data_tvalid_1 1 0 1 -60 -280n
+preplace netloc clk_1 1 0 1 -50 -230n
+preplace netloc fir_compiler_0_m_axis_data_tdata 1 1 1 530 -290n
+preplace netloc fir_compiler_0_m_axis_data_tvalid 1 1 1 520 -250n
+preplace netloc s_axis_data_tdata_1 1 0 1 -50 -310n
+preplace netloc s_axis_data_tvalid_1 1 0 1 -60 -270n
 preplace netloc xlconstant_0_dout 1 1 1 520 -490n
-levelinfo -pg 1 -80 310 540
-pagesize -pg 1 -db -bbox -sgen -290 -780 540 140
+levelinfo -pg 1 -80 310 550
+pagesize -pg 1 -db -bbox -sgen -300 -780 760 140
 "
 }
-
+0

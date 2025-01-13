@@ -25,7 +25,7 @@ module fir_reload_tb;
     parameter DATA_WIDTH = 16;
     parameter CLK_WITDH = 8;
     
-    parameter INTERVAL = 160;
+    parameter INTERVAL = 320;
 
 
     reg clk;
@@ -78,23 +78,39 @@ module fir_reload_tb;
 ////        reset = 0;
         
 ////        #32 
-//        #INTERVAL;
+        #INTERVAL;
         
-//    //////fir compieler test////////
-//        #CLK_WITDH;
+    //////fir compieler test////////
+    
+        #1;
+        
+        
+        #CLK_WITDH;
 ////        s_axis_data_tdata = 48'h123412345678; ---
-////        s_axis_data_tdata = 16'sd1;
-//        s_axis_data_tvalid = 1;
-//        #CLK_WITDH;
+        s_axis_data_tdata = -15;
+        s_axis_data_tvalid = 1;
+        #CLK_WITDH;
 ////        #4;
-        
 //        // m_axis_tready = 0;
-//        s_axis_data_tdata = 0;
-//        s_axis_data_tvalid = 0;
-//        #CLK_WITDH;
-        
-//        #INTERVAL;
-        
+        s_axis_data_tdata = 0;
+        s_axis_data_tvalid = 0;
+        #CLK_WITDH;
+        #INTERVAL;
+
+
+
+        #CLK_WITDH;
+////        s_axis_data_tdata = 48'h123412345678; ---
+        s_axis_data_tdata = -15;
+        s_axis_data_tvalid = 1;
+        #CLK_WITDH;
+////        #4;
+//        // m_axis_tready = 0;
+        s_axis_data_tdata = 0;
+        s_axis_data_tvalid = 0;
+        #CLK_WITDH;
+        #INTERVAL;
+
           $finish;
     end
     
